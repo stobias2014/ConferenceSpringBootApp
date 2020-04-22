@@ -1,10 +1,15 @@
 package com.tobias.saul.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity(name = "sessions")
 public class Session {
@@ -19,6 +24,13 @@ public class Session {
 	private String sessionDescription;
 	@Column(name = "session_length")
 	private Integer sessionLength;
+	@ManyToMany
+	@JoinTable(
+			name = "session_speakers",
+			joinColumns = @JoinColumn(name = "session_id"),
+			inverseJoinColumns = @JoinColumn(name = "speaker_id"))
+			
+	private Set<Speaker> speakers;
 	
 	//default constructor to help with serialization
 	public Session() {}
@@ -99,6 +111,14 @@ public class Session {
 	public String toString() {
 		return "Session [sessionId=" + sessionId + ", sessionName=" + sessionName + ", sessionDescription="
 				+ sessionDescription + ", sessionLength=" + sessionLength + "]";
+	}
+
+	public Set<Speaker> getSpeakers() {
+		return speakers;
+	}
+
+	public void setSpeakers(Set<Speaker> speakers) {
+		this.speakers = speakers;
 	}
 	
 	

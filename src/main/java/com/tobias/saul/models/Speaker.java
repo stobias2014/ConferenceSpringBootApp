@@ -1,13 +1,20 @@
 package com.tobias.saul.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.Type;
 
 @Entity(name = "speakers")
 public class Speaker {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name= "speaker_id")
@@ -20,6 +27,11 @@ public class Speaker {
 	private String company;
 	@Column(name = "speaker_bio")
 	private String speakerBio;
+	@Lob
+	@Type(type = "org.hibernate.type.BinaryType")
+	private byte[] speakerPhoto;
+	@ManyToMany(mappedBy = "speakers")
+	private Set<Session> sessions;
 	
 	public Speaker() {}
 
@@ -130,6 +142,22 @@ public class Speaker {
 	public String toString() {
 		return "Speaker [speakerId=" + speakerId + ", firstName=" + firstName + ", lastName=" + lastName + ", title="
 				+ title + ", company=" + company + ", speakerBio=" + speakerBio + "]";
+	}
+
+	public Set<Session> getSessions() {
+		return sessions;
+	}
+
+	public void setSessions(Set<Session> sessions) {
+		this.sessions = sessions;
+	}
+
+	public byte[] getSpeakerPhoto() {
+		return speakerPhoto;
+	}
+
+	public void setSpeakerPhoto(byte[] speakerPhoto) {
+		this.speakerPhoto = speakerPhoto;
 	}
 	
 	
