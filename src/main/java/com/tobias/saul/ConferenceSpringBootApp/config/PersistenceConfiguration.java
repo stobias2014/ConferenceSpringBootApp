@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class PersistenceConfiguration {
 	@Bean
 	public DataSource dataSource() {
-		DataSourceBuilder builder =  DataSourceBuilder.create();
+		DataSourceBuilder builder = DataSourceBuilder.create();
 		//builder.url("jdbc:mysql://localhost:3306/conference_demo?serverTimezone=UTC");
 		builder.url(System.getenv("DB_URL"));
 		builder.username(System.getenv("USER"));
