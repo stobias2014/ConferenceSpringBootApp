@@ -1,4 +1,4 @@
-package com.tobias.saul.controllers;
+package com.tobias.saul.ConferenceSpringBootApp.controllers;
 
 import java.util.List;
 
@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tobias.saul.models.Speaker;
-import com.tobias.saul.repositories.SpeakerRepository;
+import com.tobias.saul.ConferenceSpringBootApp.models.Speaker;
+import com.tobias.saul.ConferenceSpringBootApp.repositories.SpeakerRepository;
+
 
 //Rest work with JSON responses
 @RestController

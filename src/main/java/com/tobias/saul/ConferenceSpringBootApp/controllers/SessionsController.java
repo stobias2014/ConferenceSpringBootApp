@@ -1,4 +1,4 @@
-package com.tobias.saul.controllers;
+package com.tobias.saul.ConferenceSpringBootApp.controllers;
 
 import java.util.List;
 
@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tobias.saul.models.Session;
-import com.tobias.saul.repositories.SessionRepository;
+import com.tobias.saul.ConferenceSpringBootApp.models.Session;
+import com.tobias.saul.ConferenceSpringBootApp.repositories.SessionRepository;
+
 
 @RestController
 @RequestMapping("/api/v1/sessions")
 public class SessionsController {
+	
 	@Autowired
 	private SessionRepository sessionRepository;
 	

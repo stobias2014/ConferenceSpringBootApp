@@ -1,4 +1,4 @@
-package com.tobias.saul.models;
+package com.tobias.saul.ConferenceSpringBootApp.models;
 
 import java.util.Set;
 
@@ -11,6 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.Type;
+
 
 @Entity(name = "speakers")
 public class Speaker {

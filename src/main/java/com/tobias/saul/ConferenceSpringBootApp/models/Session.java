@@ -1,4 +1,4 @@
-package com.tobias.saul.models;
+package com.tobias.saul.ConferenceSpringBootApp.models;
 
 import java.util.Set;
 
@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
 
 @Entity(name = "sessions")
 public class Session {
